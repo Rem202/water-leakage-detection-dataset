@@ -1,2 +1,25 @@
 # water-leakage-detection-dataset
-供水管网泄漏检测数据集（包含正常、小泄漏类别以及大泄漏类别三类数据）
+Water supply network leakage detection dataset (including three types of data: normal, small leakage category and large leakage category)
+json format
+{
+  "SampleData": datalist,
+  "DeviceID": "*",
+   "SampleTime": "*"
+}
+you can use this function to read the data：
+
+****************************************************************
+import json
+def getData(path):
+    '''
+    :param path:type->str: json file path
+    :return:->type:list :[SampleData,DeviceID,SampleTime]
+    '''
+    with open(path, 'r') as f:
+        d = json.load(f)
+        DeviceID = d['DeviceID']
+        SampleTime = d['SampleTime']
+        SampleData = d['SampleData']
+        return [SampleData, DeviceID, SampleTime]
+  ****************************************************************
+
